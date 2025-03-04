@@ -12,17 +12,19 @@ class CityFunFact(Flow):
             model="gemini/gemini-1.5-pro",
             api_key=API_KEY,
             messages=[{                
-                "content": "Generate a random city name and return it as a string.",
+                "content": "Generate a random city name.",
                 "role": "user"
             }]
         )
         print(result['choices'][0]['message']['content'])
+        print(city)
+        return city
 
-
+    @listen(generate_random_city)
 
 def kickoff():
     obj = CityFunFact()
     obj.kickoff()
 
 
-    48:51
+    
